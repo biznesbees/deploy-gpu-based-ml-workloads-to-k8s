@@ -6,7 +6,7 @@ WORKDIR /app
 COPY . /app/
 
 RUN pip install --upgrade pip
-RUN pip install nvidia-cublas-cu12
+RUN pip install torch==2.3.0
 
 RUN pip install -r requirements.txt
 
