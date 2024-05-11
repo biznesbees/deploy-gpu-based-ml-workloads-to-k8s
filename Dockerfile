@@ -5,8 +5,8 @@ WORKDIR /app
 
 COPY . /app/
 
-
-RUN pip install nvidia-cublas-cu12==12.1.3.1
+RUN pip install --upgrade pip
+RUN pip install nvidia-cublas-cu12
 
 RUN pip install -r requirements.txt
 
