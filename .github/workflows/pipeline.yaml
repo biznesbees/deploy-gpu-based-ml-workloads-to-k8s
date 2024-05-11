@@ -25,6 +25,10 @@ jobs:
         else
             echo "::set-output name=version::$GITHUB_SHA"
         fi
+    - uses: actions/setup-python@v5
+      name: Setup python version
+      with:
+        python-version: '3.11'
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
