@@ -10,7 +10,7 @@ app = FastAPI()
 tokenizer = AutoTokenizer.from_pretrained(
     "google/gemma-2b",
     token=ACCESS_TOKEN,
-    force_download=True)
+    )
 
 model = AutoModelForCausalLM.from_pretrained(
     "google/gemma-2b",
