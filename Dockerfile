@@ -5,10 +5,10 @@ WORKDIR /app
 
 COPY . /app/
 
-
+RUN apt update && apt install -y curl
 RUN pip install -r requirements.txt
 
 
 EXPOSE 8080
 
-CMD ["uvicorn", "gemma:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["python3", "chatbot.py"]
