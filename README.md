@@ -27,7 +27,8 @@ helm repo add onechart https://chart.onechart.dev && helm repo update
 
 helm install llm-manager onechart/onechart \
   --set image.repository=ollama/ollama \
-  --set image.tag=latest
+  --set image.tag=latest \
+  --set containerPort=11434 \
   --set podSpec.runtimeClassName=nvidia
 ```
    
@@ -44,9 +45,11 @@ Deply the chatbot to kuberentes as follow:
 
 ```bash
 helm install chatbot onechart/onechart \
+  --set image.repository=ghcr.io/biznesbees/chatbot-v0.1.0 \
+  --set image.tag=latest \
   --set vars.OLLAMA_HOST=http://llm-manager \
 ```
-
+:latest
 - the queries are sent to the llm-manager
 - if the model requested is not available it will be downloaded from ollama library.
 - then the inference will be pocceds afterwards.
