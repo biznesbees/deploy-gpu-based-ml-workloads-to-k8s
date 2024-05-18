@@ -36,7 +36,7 @@ Now we have an llm-manager in which we can query any opensource model we want li
 
 Ollama is optimized for both CPU and gpu and the detection will be done automatically.
 
-In case that you GPU is not enough for certain models it will try to use CPU and Memory.
+In case that your GPU is not enough for certain models it will try to use CPU and Memory.
 
 # Setup a chatbot powered by llama3 and gradio
 We have setup a small python script `chatbot.py` that give you a web chat interface that allow you to chose your llm model that you want to experiment with.
@@ -49,7 +49,7 @@ helm install chatbot onechart/onechart \
   --set image.tag=latest \
   --set vars.OLLAMA_HOST=http://llm-manager \
 ```
-:latest
+
 - the queries are sent to the llm-manager
 - if the model requested is not available it will be downloaded from ollama library.
 - then the inference will be pocceds afterwards.
