@@ -28,23 +28,31 @@ helm repo add onechart https://chart.onechart.dev && helm repo update
 helm install llm-manager onechart/onechart \
   --set image.repository=ollama/ollama \
   --set image.tag=latest
+  --set podSpec.runtimeClassName=nvidia
 ```
    
 Now we have an llm-manager in which we can query any opensource model we want like llama3, phi and more! You can find the all the vailable llm models provided by ollama on their official [website](https://ollama.com/library)
 
-Ollama is optimized for both CPu and gpu and the detection will be done automatically.
+Ollama is optimized for both CPU and gpu and the detection will be done automatically.
 
 In case that you GPU is not enough for certain models it will try to use CPU and Memory.
 
 # Setup a chatbot powered by llama3 and gradio
 We have setup a small python script `chatbot.py` that give you a web chat interface that allow you to chose your llm model that you want to experiment with.
 
+Deply the chatbot to kuberentes as follow:
+
+```bash
+helm install chatbot onechart/onechart \
+  --set vars.OLLAMA_HOST=http://llm-manager \
+```
+
 - the queries are sent to the llm-manager
 - if the model requested is not available it will be downloaded from ollama library.
 - then the inference will be pocceds afterwards.
 
-![Alt text](chatbot_interface.jpeg)
-
+![Alt text](user_input.jpeg)
+![Alt text](output.jpeg)
 
 # The Big picture
 
