@@ -3,6 +3,8 @@ from ollama import Client
 import os
 
 OLLAMA_HOST = os.getenv("OLLAMA_HOST")
+
+
 client = Client(host=OLLAMA_HOST)
 
 
