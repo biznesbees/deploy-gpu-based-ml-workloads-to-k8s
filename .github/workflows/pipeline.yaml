@@ -3,7 +3,7 @@ name: 🚀 Publish
 on:
   push:
     tags:
-      - 'gemma-wrapper-v*'
+      - 'chatbot-v*'
 
 jobs:
   publish:
@@ -20,7 +20,7 @@ jobs:
         if [[ $GITHUB_REF == refs/tags/* ]]
         then
             tag=${GITHUB_REF##refs/tags/}
-            v=${tag##gemma-wrapper-}
+            v=${tag##chatbot-}
             echo "::set-output name=version::$v"
         else
             echo "::set-output name=version::$GITHUB_SHA"
@@ -36,7 +36,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ github.ref }}
-        release_name: Gemma Wrapper ${{ steps.version.outputs.version }}
+        release_name: Chat Bot ${{ steps.version.outputs.version }}
         draft: false
         prerelease: false
     - name: Set up QEMU
@@ -58,4 +58,4 @@ jobs:
         platforms: linux/amd64,linux/arm64/v8
         push: true
         tags: |
-          ghcr.io/biznesbees/gemma-wrapper:${{ steps.version.outputs.version }}
+          ghcr.io/biznesbees/chatbot-:${{ steps.version.outputs.version }}
