@@ -54,11 +54,11 @@ helm install chatbot onechart/onechart \
 - if the model requested is not available it will be downloaded from ollama library.
 - then the inference will be pocceds afterwards.
 
-![Alt text](user_input.jpeg)
-![Alt text](output.jpeg)
+![Alt text](llama_input.png)
+![Alt text](llama_output.png)
 
 # The Big picture
 
 The following diagram show all the componenets and how they interacts.
 
-![Alt text](diagram.jpeg)
+![Alt text](diagram.png)
