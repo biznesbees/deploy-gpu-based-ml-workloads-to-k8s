@@ -1,4 +1,7 @@
 # Spin Up Your Own Chatbot Powered by famous llms like llama3, phi .. on your Own cluster on your own laptop!—All in Just a Few Steps!
+
+![llm](diagram.png)
+
 In this blog post we gonna go through how you can deploy your ml workloads onto kubernetes and enable GPU acceleration for it.
 
 Before dig in into the pratical part, we want to dig in a bit on what's happening under your kubernetes cluster, Some of us are always curious how thing are beind handled behind the scenes.
